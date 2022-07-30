@@ -32,9 +32,20 @@ void autoN()
 	findA();
 	std::cout <<"n: " << n << " ";
 	int beg = clock();
-	for (int i = 0; i < 1500; i++)findA();
+	for (int i = 0; i < 1500; i++)
+	{
+		std::thread first(findA);
+		std::thread second(findA);
+		//std::thread three(findA);
+		//std::thread four(findA);
+
+		first.join();
+		second.join();
+		//three.join();
+		//four.join();
+	}
 	int end1 = clock();
-	std::cout << end1 - beg << std::endl;
+	std::cout <<"Time: " << end1 - beg << std::endl;
 	n *= 10;
 	if (n != 100000000)
 	{
@@ -48,7 +59,7 @@ int main()
 	int k;
 	std::cin >> k;
 	std::cout <<"1 ------------------------------------------------------" << std::endl;
-	for (int i = 1; i <= k; i++) { autoN(); if (i  != k) { std::cout << i + 1 << "------------------------------------------------------" << std::endl; } n = 1; }
+	for (int i = 1; i <= k; i++) { autoN(); if (i != k) { std::cout << i + 1 << "------------------------------------------------------" << std::endl; } n = 1; }
 	
 	
 
