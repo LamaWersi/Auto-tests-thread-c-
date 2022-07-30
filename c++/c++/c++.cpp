@@ -34,12 +34,13 @@ void autoN()
 	int beg = clock();
 	for (int i = 0; i < 1500; i++)
 	{
-		std::thread first(findA);
+		findA();
+		//std::thread first(findA);
 		//std::thread second(findA);
 		//std::thread three(findA);
 		//std::thread four(findA);
 
-		first.join();
+		//first.join();
 		//second.join();
 		//three.join();
 		//four.join();
